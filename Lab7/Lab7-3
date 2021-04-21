@@ -1,0 +1,17 @@
+from guizero import App, Text, Picture
+
+# Ask the user if they really want to close the window
+def do_this_when_closed():
+    if app.yesno("Close", "Do you want to quit?"):
+        app.destroy()
+
+app = App()
+title = Text(app, text="Wanted")
+app.bg = "#A0A0A0" #light gray, interior box color
+wanted_text = Text(app, "DROID") #interior text
+wanted_text.text_size = 50 #interior text size
+wanted_text.font = "Times New Roman" #interior font style
+cat = Picture(app, image="/home/pi/Downloads/r2d2.png") #photo
+app.when_closed = do_this_when_closed
+
+app.display()
